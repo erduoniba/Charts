@@ -148,46 +148,46 @@ open class AxisRendererBase: Renderer
         {
             // no forced count
         
-            var first = interval == 0.0 ? 0.0 : ceil(yMin / interval) * interval
-            
-            if axis.centerAxisLabelsEnabled
-            {
-                first -= interval
-            }
-            
-            let last = interval == 0.0 ? 0.0 : (floor(yMax / interval) * interval).nextUp
-            
-            if interval != 0.0 && last != first
-            {
-                for _ in stride(from: first, through: last, by: interval)
-                {
-                    n += 1
-                }
-            }
-            else if last == first && n == 0
-            {
-                n = 1
-            }
-
-            // Ensure stops contains at least n elements.
-            axis.entries.removeAll(keepingCapacity: true)
-            axis.entries.reserveCapacity(labelCount)
-            
-            var f = first
-            var i = 0
-            while i < n
-            {
-                if f == 0.0
-                {
-                    // Fix for IEEE negative zero case (Where value == -0.0, and 0.0 == -0.0)
-                    f = 0.0
-                }
-                
-                axis.entries.append(Double(f))
-                
-                f += interval
-                i += 1
-            }
+//            var first = interval == 0.0 ? 0.0 : ceil(yMin / interval) * interval
+//
+//            if axis.centerAxisLabelsEnabled
+//            {
+//                first -= interval
+//            }
+//
+//            let last = interval == 0.0 ? 0.0 : (floor(yMax / interval) * interval).nextUp
+//
+//            if interval != 0.0 && last != first
+//            {
+//                for _ in stride(from: first, through: last, by: interval)
+//                {
+//                    n += 1
+//                }
+//            }
+//            else if last == first && n == 0
+//            {
+//                n = 1
+//            }
+//
+//            // Ensure stops contains at least n elements.
+//            axis.entries.removeAll(keepingCapacity: true)
+//            axis.entries.reserveCapacity(labelCount)
+//
+//            var f = first
+//            var i = 0
+//            while i < n
+//            {
+//                if f == 0.0
+//                {
+//                    // Fix for IEEE negative zero case (Where value == -0.0, and 0.0 == -0.0)
+//                    f = 0.0
+//                }
+//
+//                axis.entries.append(Double(f))
+//
+//                f += interval
+//                i += 1
+//            }
         }
         
         // set decimals
